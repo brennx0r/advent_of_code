@@ -1,3 +1,13 @@
+
+def sort_string_elements(array)
+  @sorted_array = []
+  array.each do |element|
+    sorted_result = element.chars.sort.join
+    @sorted_array << sorted_result
+  end 
+end
+
+
 def validator(passphrase)
   true_count = 0
   false_count = 0
@@ -9,7 +19,10 @@ def validator(passphrase)
    puts "Incoming passphrase: "+line.to_s
 
    passphrase_array = line.to_s.split(/\s+/)
-   passphrase_reduce = passphrase_array.reduce(Hash.new(0)) { |a, b| a[b] += 1; a }
+
+  sort_string_elements(passphrase_array)
+
+   passphrase_reduce = @sorted_array.reduce(Hash.new(0)) { |a, b| a[b] += 1; a }
    
    passphrase_reduce.each do |key, value|
    	if value > 1

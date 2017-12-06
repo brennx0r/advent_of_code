@@ -7,7 +7,11 @@ def get_value
 end
 
 def iterate_value
-	new_value = @current_value + 1
+  if @current_value > 2
+    new_value = @current_value - 1
+  else
+	  new_value = @current_value + 1
+  end
 	@array[@current_location] = new_value
 end
 
@@ -23,12 +27,13 @@ end
 def is_out
 	if @array[@current_location] == nil
 		puts "Out of the array! The number of steps taken were :  "+@step.to_s
+    # puts "Result array value: "+@array.to_s
 		exit!
 	end
 end
 
 def process_turn(input)
-	10000000.times {
+	10000000000000000.times {
 	get_value
 	iterate_value
 	move
@@ -46,3 +51,4 @@ def read_to_array(file)
 end
 
 process_turn(read_to_array('input_data.txt'))
+# process_turn(read_to_array('test_example.txt'))

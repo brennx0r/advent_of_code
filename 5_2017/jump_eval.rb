@@ -33,12 +33,12 @@ def is_out
 end
 
 def process_turn(input)
-	10000000000000000.times {
-	get_value
-	iterate_value
-	move
-	is_out
-}
+	while @array[@current_location] != nil
+  	get_value
+  	iterate_value
+  	move
+  	is_out
+  end
 end
 
 def read_to_array(file)

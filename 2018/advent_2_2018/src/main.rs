@@ -258,13 +258,16 @@ fn main() {
             three_count += 1
         }
 
-        if two_count > 0 {
-            final_two_count += 1;
-        }
+    if two_count > 0 {
+        final_two_count += 1;
+    }
 
-        if three_count > 0 {
-            final_three_count += 1;
-        }
+    if three_count > 0 {
+        final_three_count += 1;
+    }
+
+    two_count = 0;
+    three_count = 0;
 
     }
 

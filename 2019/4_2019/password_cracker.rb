@@ -17,10 +17,23 @@ def adjacent_digit_match
     end
 end
 
+def increase_check
+    puts "Checking the increase rule!"
+    # Going from left to right, the digits never decrease; they only ever increase or stay the same (like 111123 or 135679).
+    element = 0
+    7.times
+    if @array[element] > @array[element+1]
+        puts "increase check failed - bailing."
+        exit
+        element += 1
+    end
+end 
+
 def run_checks
     puts "Running the checks!"
     check_length
     adjacent_digit_match
+    increase_check
 end
 
 def iterate

@@ -1,19 +1,26 @@
 
+@match_results = []
 @array = []
 
 def check_length
     puts "Checking the length!"
-    if @array.length > 6 or @array.join == @end_number
+    if @array.length >  6 or  @string.to_i > @end_number.to_i
+        puts "End of list - exiting"
+        puts "Total number of matches: "+@match_results.length.to_s
+        puts "Match results list: "+@match_results.to_s  
         exit
     end
 end
 
 def adjacent_digit_match
     puts "Running adjacent match check!"
-    if @string.match('.*(00|11|22|33|44|55|66|77|88|99).*')
-        puts "Match!"
-        puts "Resulting number: "+@string
-        exit
+    #if @string.match('(((0{2}|1{2}|2{2}|3{2}|4{2}|5{2}|6{2}|7{2}|8{2}|9{2})(0{2}|1{2}|2{2}|3{2}|4{2}|5{2}|6{2}|7{2}|8{2}|9{2})(0{2}|1{2}|2{2}|3{2}|4{2}|5{2}|6{2}|7{2}|8{2}|9{2}))|(0{3}|1{3}|2{3}|3{3}|4{3}|5{3}|6{3}|7{3}|8{3}|9{3})(0{3}|1{3}|2{3}|3{3}|4{3}|5{3}|6{3}|7{3}|8{3}|9{3}))')
+    if @string.match('((0{2}|0{4})|(1{2}|1{4})|(2{2}|2{4})|(3{2}|3{4})|(4{2}|4{4})|(5{2}|5{4})|(6{2}|6{4})|(7{2}|7{4})|(8{2}|8{4})|(9{2}|9{4}))')
+   
+    puts "Match!"
+        @match_results.push(@string)
+    else
+        iterate
     end
 end
 
@@ -21,10 +28,20 @@ def increase_check
     puts "Checking the increase rule!"
     # Going from left to right, the digits never decrease; they only ever increase or stay the same (like 111123 or 135679).
     element = 0
-    7.times {
+
+    6.times {
+    check_length      
+    if @array[element+1] == nil
+        next
+    end        
     if @array[element] > @array[element+1]
-        puts "This is not the number - moving on to the next number."
-        iterate
+        puts "This is not a good number - jumping the number and moving on."
+        jump_number = @array[element].to_i
+        @array.delete_at(element+1)
+        @array.insert(element+1, jump_number.to_s)
+        puts "Array updated: "+@array.to_s
+        convert_to_string
+        puts "String updated: "+@string
     end
     element += 1
     }
@@ -33,8 +50,8 @@ end
 def run_checks
     puts "Running the checks!"
     increase_check
-    check_length
     adjacent_digit_match
+    check_length
 end
 
 def iterate
@@ -71,9 +88,10 @@ def crack
     iterate
 end
 
-puts "Let's crack some passwords!\n\nWhat is the beginning range for the crack?"
-@start_number = gets.strip
-puts "Excellent! Now, what is the end of the range?\n"
-@end_number = gets.strip
+# puts "Let's crack some passwords!\n\nWhat is the beginning range for the crack?"
+@start_number = "402328"
+# puts "Excellent! Now, what is the end of the range?\n"
+@end_number = "864247"  
 
 crack
+

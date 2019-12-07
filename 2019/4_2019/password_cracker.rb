@@ -33,7 +33,8 @@ def increase_check
     check_length      
     if @array[element+1] == nil
         next
-    end        
+    end    
+
     if @array[element] > @array[element+1]
         puts "This is not a good number - jumping the number and moving on."
         jump_number = @array[element].to_i
@@ -52,6 +53,7 @@ def run_checks
     increase_check
     adjacent_digit_match
     check_length
+    
 end
 
 def iterate
@@ -79,8 +81,6 @@ def convert_to_string
     puts "String created: "+@string
 end
 
-
-
 def crack
     convert_to_array
     convert_to_string
@@ -88,10 +88,24 @@ def crack
     iterate
 end
 
+def process_incoming
+    convert_to_array
+    new_integer = @array[0].to_i
+ 
+    6.times {
+        @array.delete_at(1)
+        @array.push(new_integer.to_s)
+        puts @array.to_s 
+    }  
+
+    convert_to_string 
+    crack      
+end
+
 # puts "Let's crack some passwords!\n\nWhat is the beginning range for the crack?"
 @start_number = "402328"
 # puts "Excellent! Now, what is the end of the range?\n"
 @end_number = "864247"  
-
-crack
+#@end_number = "444457"
+process_incoming
 

@@ -1,4 +1,4 @@
-
+@other_match_results = []
 @match_results = []
 @array = []
 
@@ -6,22 +6,32 @@ def check_length
     puts "Checking the length!"
     if @array.length >  6 or  @string.to_i > @end_number.to_i
         puts "End of list - exiting"
-        puts "Total number of matches: "+@match_results.length.to_s
-        puts "Match results list: "+@match_results.to_s  
+        puts "Total number of first pass matches: "+@match_results.length.to_s
+        puts "Total number of second pass matches: "+@other_match_results.length.to_s
+        final_match_results = @match_results.length - @other_match_results.length
+        puts "Match results list: "+final_match_results.to_s
+        puts @other_match_results.to_s
         exit
     end
 end
 
 def adjacent_digit_match
     puts "Running adjacent match check!"
-    #if @string.match('(((0{2}|1{2}|2{2}|3{2}|4{2}|5{2}|6{2}|7{2}|8{2}|9{2})(0{2}|1{2}|2{2}|3{2}|4{2}|5{2}|6{2}|7{2}|8{2}|9{2})(0{2}|1{2}|2{2}|3{2}|4{2}|5{2}|6{2}|7{2}|8{2}|9{2}))|(0{3}|1{3}|2{3}|3{3}|4{3}|5{3}|6{3}|7{3}|8{3}|9{3})(0{3}|1{3}|2{3}|3{3}|4{3}|5{3}|6{3}|7{3}|8{3}|9{3}))')
     if @string.match('((0{2}|0{4})|(1{2}|1{4})|(2{2}|2{4})|(3{2}|3{4})|(4{2}|4{4})|(5{2}|5{4})|(6{2}|6{4})|(7{2}|7{4})|(8{2}|8{4})|(9{2}|9{4}))')
-   
     puts "Match!"
         @match_results.push(@string)
+    end
+end
+
+def other_adjacent_digit_match
+    puts "Running OTHER adjacent match check!"
+    if @string.match('(00|11|22|33|44|55|66|77|88|99)(00|11|22|33|44|55|66|77|88|99)(00|11|22|33|44|55|66|77|88|99)')
+        puts "Match!"
+        @other_match_results.push(@string)
     else
         iterate
     end
+
 end
 
 def increase_check
@@ -52,8 +62,8 @@ def run_checks
     puts "Running the checks!"
     increase_check
     adjacent_digit_match
+    other_adjacent_digit_match
     check_length
-    
 end
 
 def iterate

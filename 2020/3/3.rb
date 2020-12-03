@@ -28,24 +28,14 @@ def decide_if_tree(place)
     puts "Tree count is #{@tree_count}"
 end
 
-def define_x_multiplier
-    needed_width = @array_y * 3
-    
-    if needed_width > @array_x
-        difference_base = @array_y * 3
-        array_x_gap = difference_base / @array_x
-        @array_x_multiplier = array_x_gap + 3
-    else 
-        @array_x_multiplier = 1
-    end    
-end
+
 
 def evaluate_map
     # begin on the "row" - in this case, the element in the OG array
    
 puts "Array X (width): "+@array_x.to_s
 puts "Array Y (length): "+@array_y.to_s
-puts "Array X multiplier: "+@array_x_multiplier.to_s
+
         times_count = 0
         shift_y = @array_y - 1
 
@@ -80,5 +70,4 @@ end
 
 read_to_array('test_data.txt')
 get_array_x
-define_x_multiplier
 evaluate_map

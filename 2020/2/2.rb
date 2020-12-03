@@ -18,7 +18,37 @@ def count_char_instances
     puts @string_array.to_s
     password = @string_array[3].to_s
     character = @string_array[2].to_s
-    @count = password.count(character)
+    @count = password.count(character) 
+end
+
+def is_char_instance_in_positions
+    puts "Line is: #{@string_array.to_s}"
+    password_array = @string_array[3].split(%r{\s*}) 
+    puts "Password array is #{password_array}"
+    character = @string_array[2].to_s
+    position_one = @string_array[0].to_i - 1
+    position_two = @string_array[1].to_i - 1
+    @check_count = 0
+
+    if character == password_array[position_one]
+        @check_count += 1
+        puts "match"
+        puts @check_count
+    end
+
+    if character == password_array[position_two]
+        @check_count += 1
+        puts "match"
+        puts @check_count
+    end
+    
+    if @check_count == 2
+        puts "no match"
+    elsif @check_count == 1
+        puts "match"
+        @valid_password_count += 1
+    end
+
 end
 
 def count_in_range
@@ -42,8 +72,9 @@ def work_through_elements
     
     array_length.times {
         process_array_element
-        count_char_instances
-        count_in_range
+        is_char_instance_in_positions
+        #count_char_instances
+        #count_in_range
         delete_element
     }
 

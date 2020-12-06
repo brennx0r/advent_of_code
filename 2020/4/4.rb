@@ -1,10 +1,189 @@
+@passport_values = []
+@valid_passport_count = 0
+@processed_passport_count = 0
+@file_length = 0
+@final_total = 0
+
 def read_to_array(file)
     read_lines = File.readlines(file)
     @array = []
 
     read_lines.each do |line|
-        @array << line.to_s
+
+        @array << line.gsub("\n",'')
+        @file_length += 1
+
     end
 end
 
-read_to_array('test_data_sample.txt')
+
+def process_array_element
+
+    # # look at the current line
+    # # push the value to new arr if not empty
+    # # delete element
+
+    while @array[0].length != 0
+        @passport_string = @array[0].scan(/\w+\W+\w+/)
+        @passport_values.push(@passport_string)
+        @passport_values = @passport_values.flatten
+        @array.delete_at(0)
+
+        if @array.empty? == true 
+            output = File.open( "all_lines.txt", "a" )
+            output << @passport_values.sort
+            output << "\n"
+            output.close
+            process_rules
+        end
+
+    end
+
+    @array.delete_at(0)
+
+    puts "Leaving process_array_element."
+    # puts "OG array members: "+@array.to_s
+    puts "Password values array: "+@passport_values.to_s
+
+    output = File.open( "all_lines.txt", "a" )
+    output << @passport_values.sort
+    output << "\n"
+    output.close
+
+    process_rules
+end
+
+    
+
+def overview_length_check
+    length = @passport_values.length
+
+    if length == 7
+        rule_all_types_present
+    end
+
+    if length != 8 
+        @processed_passport_count += 1
+        puts "This passport does not contain 8 values - not valid. Moving on..."
+        puts "Count of valid passports: "+@valid_passport_count.to_s
+        puts "Count of total passports: "+@processed_passport_count.to_s
+        puts "-----------"
+
+        output = File.open( "wrong_count_output.txt", "a" )
+        output << @passport_values.sort
+        output << "\n"
+        output.close
+
+        @passport_values = []
+        cleanup_check 
+    end
+
+    # if the length is 8, we continue through the next step
+    # in rules processing
+
+end 
+
+
+
+def process_rules
+    overview_length_check
+    rule_all_types_present
+end
+
+
+def rule_all_types_present
+
+    passport_types = [
+        "byr",
+        "iyr",
+        "eyr",
+        "hgt",
+        "hcl",
+        "ecl",
+        # "cid", We don't actually care about cid, turns out :((
+        "pid"
+    ]
+
+    passport_types.each { |type|
+        passport_string_raw = @passport_values.to_s
+        passport_string_match = passport_string_raw.scan(/"#{type}:/)
+        @passport_string_length = passport_string_match.length
+        
+        if @passport_string_length == 0
+            puts "No match on passport type - moving on..."
+            @processed_passport_count += 1
+            puts "Count of valid passports: "+@valid_passport_count.to_s
+            puts "Count of total passports: "+@processed_passport_count.to_s
+            puts "-----------"
+
+            output = File.open( "wrong_type_output.txt", "a" )
+            output << @passport_values.sort
+            output << "\n"
+            output.close
+
+            @passport_values = []
+            cleanup_check
+        else
+            puts "Required type #{type} found!"
+        end
+
+    }
+
+    puts "Valid passport found - all types found and password has 8 members."
+    @processed_passport_count += 1
+    @valid_passport_count += 1
+    puts "Count of valid passports: "+@valid_passport_count.to_s
+    puts "Count of total passports: "+@processed_passport_count.to_s
+    puts "-----------"
+    output = File.open( "output.txt", "a" )
+    output << @passport_values.sort
+    output << "\n"
+    output.close
+
+    @passport_values = []
+    cleanup_check
+
+end
+
+def cleanup_check
+
+    # You arrive here in two ways:
+    # the overview length check, or rules_all_types_present
+    #
+    # this method should check if the original array has anything else to process
+    # and if so send off to next step (process_array_element)
+    
+
+    if @array.empty? == true
+        puts "No more data to process, exiting..."
+        puts "Count of TOTAL valid passports: "+@valid_passport_count.to_s
+        @processed_passport_count += 1
+        puts "Count of TOTAL passports: "+@processed_passport_count.to_s
+        exit
+    else
+        process_array_element
+    end
+
+end
+
+def cleanup_output_files
+    output = File.open( "all_lines.txt", "w" )
+    output << ""
+    output.close
+    output = File.open( "output.txt", "w" )
+    output << ""
+    output.close
+    output = File.open( "wrong_count_output.txt", "w" )
+    output << ""
+    output.close
+    output = File.open( "wrong_type_output.txt", "w" )
+    output << ""
+    output.close
+    
+end
+
+
+
+cleanup_output_files
+read_to_array('test_data.txt')
+process_array_element

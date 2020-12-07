@@ -1,0 +1,107 @@
+ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
+byr:1920 iyr:2010 cid:147 hgt:150cm
+
+ecl:gry pid:860033327 eyr:2020 hcl:#111111
+byr:1920 iyr:2010 cid:147 hgt:150cm
+
+ecl:gry pid:860033327 eyr:2020 hcl:#000000
+byr:1920 iyr:2010 cid:147 hgt:150cm
+
+ecl:gry pid:860033327 eyr:2020 hcl:#999999
+byr:1920 iyr:2010 cid:147 hgt:150cm
+
+ecl:gry pid:860033327 eyr:2020 hcl:#aaaaaa
+byr:1920 iyr:2010 cid:147 hgt:150cm
+
+ecl:gry pid:860033327 eyr:2020 hcl:#ffffff
+byr:1920 iyr:2010 cid:147 hgt:150cm
+
+ecl:gry pid:860033327 eyr:2020 hcl:#1a2b3c
+byr:1920 iyr:2010 cid:147 hgt:150cm
+
+ecl:gry pid:860033327 eyr:2020 hcl:#f9d9c8
+byr:1920 iyr:2010 cid:147 hgt:150cm
+
+ecl:gry pid:860033327 eyr:2030 hcl:#fffffd
+byr:2002 iyr:2020 cid:147 hgt:193cm
+
+ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
+byr:1920 iyr:2010 cid:147 hgt:59in
+
+ecl:gry pid:860033327 eyr:2030 hcl:#fffffd
+byr:2002 iyr:2020 cid:147 hgt:76in
+
+ecl:amb pid:860033327 eyr:2030 hcl:#fffffd
+byr:2002 iyr:2020 cid:147 hgt:76in
+
+ecl:blu pid:860033327 eyr:2030 hcl:#fffffd
+byr:2002 iyr:2020 cid:147 hgt:76in
+
+ecl:brn pid:860033327 eyr:2030 hcl:#fffffd
+byr:2002 iyr:2020 cid:147 hgt:76in
+
+ecl:gry pid:860033327 eyr:2030 hcl:#fffffd
+byr:2002 iyr:2020 cid:147 hgt:76in
+
+ecl:grn pid:860033327 eyr:2030 hcl:#fffffd
+byr:2002 iyr:2020 cid:147 hgt:76in
+
+ecl:hzl pid:860033327 eyr:2030 hcl:#fffffd
+byr:2002 iyr:2020 cid:147 hgt:76in
+
+ecl:oth pid:860033327 eyr:2030 hcl:#fffffd
+byr:2002 iyr:2020 cid:147 hgt:76in
+
+ecl:gry pid:000033327 eyr:2030 hcl:#fffffd
+byr:2002 iyr:2020 cid:147 hgt:76in
+
+ecl:gry pid:8600333271 eyr:2030 hcl:#fffffd
+byr:2002 iyr:2020 cid:147 hgt:76in
+
+ecl:gry pid:86003332 eyr:2030 hcl:#fffffd
+byr:2002 iyr:2020 cid:147 hgt:76in
+
+ecl:otr pid:860033327 eyr:2030 hcl:#fffffd
+byr:2002 iyr:2020 cid:147 hgt:76in
+
+ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
+byr:1919 iyr:2010 cid:147 hgt:150cm
+
+ecl:gry pid:860033327 eyr:2030 hcl:#fffffd
+byr:2003 iyr:2020 cid:147 hgt:193cm
+
+ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
+byr:1920 iyr:2009 cid:147 hgt:59in
+
+ecl:gry pid:860033327 eyr:2030 hcl:#fffffd
+byr:2002 iyr:2021 cid:147 hgt:76in
+
+ecl:gry pid:860033327 eyr:2019 hcl:#fffffd
+byr:1920 iyr:2010 cid:147 hgt:150cm
+
+ecl:gry pid:860033327 eyr:2031 hcl:#fffffd
+byr:2002 iyr:2020 cid:147 hgt:193cm
+
+ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
+byr:1920 iyr:2010 cid:147 hgt:149cm
+
+ecl:gry pid:860033327 eyr:2030 hcl:#fffffd
+byr:2002 iyr:2020 cid:147 hgt:194cm
+
+ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
+byr:1920 iyr:2010 cid:147 hgt:58in
+
+ecl:gry pid:860033327 eyr:2030 hcl:#fffffd
+byr:2002 iyr:2020 cid:147 hgt:77in
+
+ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
+byr:1920 iyr:2010 cid:147 hgt:149cm
+
+ecl:gry pid:860033327 eyr:2020 hcl:#fffffdd
+byr:1920 iyr:2010 cid:147 hgt:150cm
+
+ecl:gry pid:860033327 eyr:2020 hcl:#gggggg
+byr:1920 iyr:2010 cid:147 hgt:150cm
+
+ecl:gry pid:860033327 eyr:2020 hcl:#zzzzzz
+byr:1920 iyr:2010 cid:147 hgt:150cm

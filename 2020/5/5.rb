@@ -126,10 +126,10 @@ end
 def seat_id_eval(seat_id)
     #let's sort em in this array
     @seat_id_array.push(seat_id)
-    @seat_id_array.sort
+    @seat_id_array.sort!
     puts @seat_id_array.to_s
     puts "HIGHEST SEAT ID: "+@seat_id_array.last.to_s
 end
 
-# read_to_array('test_data.txt')
-read_to_array('test_data_sample.txt')
+read_to_array('test_data.txt')
+# read_to_array('test_data_sample.txt')

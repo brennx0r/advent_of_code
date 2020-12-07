@@ -53,8 +53,6 @@ def process_array_element
     process_rules
 end
 
-    
-
 def overview_length_check
     length = @passport_values.length
 
@@ -64,7 +62,7 @@ def overview_length_check
 
     if length != 8 
         @processed_passport_count += 1
-        puts "This passport does not contain 8 values - not valid. Moving on..."
+        puts "This passport does not contain 7 or 8 values - not valid. Moving on..."
         puts "Count of valid passports: "+@valid_passport_count.to_s
         puts "Count of total passports: "+@processed_passport_count.to_s
         puts "-----------"
@@ -78,36 +76,45 @@ def overview_length_check
         cleanup_check 
     end
 
-    # if the length is 8, we continue through the next step
-    # in rules processing
-
 end 
-
-
 
 def process_rules
     overview_length_check
     rule_all_types_present
 end
 
-
 def rule_all_types_present
 
-    passport_types = [
-        "byr",
-        "iyr",
-        "eyr",
-        "hgt",
-        "hcl",
-        "ecl",
-        # "cid", We don't actually care about cid, turns out :((
-        "pid"
-    ]
+    # byr (Birth Year) - four digits; at least 1920 and at most 2002.
+    # iyr (Issue Year) - four digits; at least 2010 and at most 2020.
+    # eyr (Expiration Year) - four digits; at least 2020 and at most 2030.
+    # hgt (Height) - a number followed by either cm or in:
+    #     If cm, the number must be at least 150 and at most 193.
+    #     If in, the number must be at least 59 and at most 76.
+    # hcl (Hair Color) - a # followed by exactly six characters 0-9 or a-f.
+    # ecl (Eye Color) - exactly one of: amb blu brn gry grn hzl oth.
+    # pid (Passport ID) - a nine-digit number, including leading zeroes.
+    # cid (Country ID) - ignored, missing or not.
 
-    passport_types.each { |type|
+    # Instead of having many small methods, let's do this thing
+    # using REGULAR EXPRESSIONS 😈 😈 😈 😈 😈 😈 😈 😈
+    passport_types = {
+        "byr"  => 'byr:(19[2-9]\d|200[0-2])"',
+        "iyr" => 'iyr:20(1[0-9]|20)"',
+        "eyr" => 'eyr:20(2[0-9]|30)"',
+        "hgt" => 'hgt:(1[5-8][0-9]cm|19[0-3]cm|59in|6[0-9]in|7[0-6]in)"',
+        "hcl" => 'hcl:#(\d|[abcdef]){6}"',
+        "ecl" => 'ecl:(amb|blu|brn|gry|grn|hzl|oth)"',
+        # "cid", We don't actually care about cid, turns out :((
+        "pid" => 'pid:\d{9}"'
+    }
+
+    passport_types.each { |type, regex|
+
         passport_string_raw = @passport_values.to_s
-        passport_string_match = passport_string_raw.scan(/"#{type}:/)
+        passport_string_match = passport_string_raw.scan(/"#{regex}/)
         @passport_string_length = passport_string_match.length
+        @passport_string = passport_string_match.to_s
         
         if @passport_string_length == 0
             puts "No match on passport type - moving on..."
@@ -117,6 +124,7 @@ def rule_all_types_present
             puts "-----------"
 
             output = File.open( "wrong_type_output.txt", "a" )
+            output << "Invalid char: #{type}"
             output << @passport_values.sort
             output << "\n"
             output.close
@@ -157,7 +165,6 @@ def cleanup_check
     if @array.empty? == true
         puts "No more data to process, exiting..."
         puts "Count of TOTAL valid passports: "+@valid_passport_count.to_s
-        @processed_passport_count += 1
         puts "Count of TOTAL passports: "+@processed_passport_count.to_s
         exit
     else
@@ -181,8 +188,6 @@ def cleanup_output_files
     output.close
     
 end
-
-
 
 cleanup_output_files
 read_to_array('test_data.txt')

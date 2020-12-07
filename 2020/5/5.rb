@@ -131,5 +131,21 @@ def seat_id_eval(seat_id)
     puts "HIGHEST SEAT ID: "+@seat_id_array.last.to_s
 end
 
+def find_your_seat
+
+    while true == true
+
+    @total = @seat_id_array[0] + 1
+        if @total == @seat_id_array[1]
+        else
+            puts "Found my seat! It's between "+@seat_id_array[0].to_s+" and "+@seat_id_array[1].to_s 
+            exit
+        end
+        @seat_id_array.delete_at(0)
+    end
+end
+
+
 read_to_array('test_data.txt')
 # read_to_array('test_data_sample.txt')
+find_your_seat

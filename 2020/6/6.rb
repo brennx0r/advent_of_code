@@ -105,5 +105,5 @@ def add_answer_count_array
 end
 
 cleanup_output_files
-read_to_array('test_data_sample.txt')
+read_to_array('test_data.txt')
 process_array_element

@@ -132,9 +132,7 @@ def seat_id_eval(seat_id)
 end
 
 def find_your_seat
-
     while true == true
-
     @total = @seat_id_array[0] + 1
         if @total == @seat_id_array[1]
         else

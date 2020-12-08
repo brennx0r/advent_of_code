@@ -46,7 +46,7 @@ def traverse_front_to_back(ftb_array)
             @number_end_value = @row_array.last
             @number_end = @row_array.index(@number_end_value)
         end
-        
+
         @row_array = @row_array[@number_start..@number_end] 
         ftb_array.delete_at(0)
     end
@@ -98,7 +98,6 @@ def seat_id_eval(seat_id)
     #let's sort em in this array
     @seat_id_array.push(seat_id)
     @seat_id_array.sort!
-    puts "HIGHEST SEAT ID: "+@seat_id_array.last.to_s
 end
 
 def find_your_seat
@@ -116,4 +115,5 @@ end
 
 read_to_array('test_data.txt')
 # read_to_array('test_data_sample.txt')
+puts "HIGHEST SEAT ID: "+@seat_id_array.last.to_s
 find_your_seat

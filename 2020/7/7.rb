@@ -11,7 +11,6 @@ def read_to_array(file)
     end
 end
 
-
 def process_array
     rule_match("shiny gold bag")
     send_next_rule_match
@@ -21,7 +20,7 @@ def rule_match(value)
     @bag_rules_array.each { |rule|
         if rule[0].include?(value)
             rule = []
-        elsif rule[1].include?(value)
+        elsif rule[1..10].include?(value)
             @bags_result_list_array.push(rule[0])
             @values_to_process.push(rule[0])
             rule = []
@@ -37,7 +36,6 @@ def send_next_rule_match
     end
 end
 
-read_to_array('test_data_sample.txt')
+read_to_array('test_data.txt')
 process_array
-
-puts @bags_result_list_array.to_s
+puts @bags_result_list_array.uniq!.length.to_s

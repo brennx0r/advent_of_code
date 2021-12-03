@@ -13,9 +13,9 @@ if [ $1 == "--help" ]; then
 fi
 
 day=$1
+year='2021'
 
-
-mkdir ${day}
-touch ${day}/test_data.txt
-touch ${day}/test_data_sample.txt
-cp sample.rb ${day}/${day}.rb
+mkdir ${year}/${day}
+touch ${year}/${day}/test_data.txt
+touch ${year}/${day}/test_data_sample.txt
+cp sample.rb ${year}/${day}/${day}.rb

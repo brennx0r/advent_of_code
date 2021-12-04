@@ -19,9 +19,7 @@ def add_elements
 
     array_count.times do
 
-        if array_count - n == 2
-            break
-        elsif array_count - n == 1
+        if array_count - n < 3
             break
         else
         

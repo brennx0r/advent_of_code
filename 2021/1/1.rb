@@ -22,13 +22,11 @@ def add_elements
         if array_count - n < 3
             break
         else
-        
             sum = @array[n] + @array[n+1] + @array[n+2]
             @sum_array << sum
             puts @sum_array.to_s
         
             n += 1
-
         end
     end
 

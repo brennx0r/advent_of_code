@@ -13,7 +13,7 @@ if [ $1 == "--help" ]; then
 fi
 
 day=$1
-year='2021'
+year='2022'
 
 mkdir ${year}/${day}
 touch ${year}/${day}/test_data.txt

@@ -21,6 +21,6 @@ def calc_top_3
     puts sum
 end
 
-read_to_array('test_data_sample.txt')
+read_to_array('test_data.txt')
 calc_top_3
 

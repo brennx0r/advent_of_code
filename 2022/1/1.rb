@@ -13,7 +13,7 @@ def read_to_array(file)
     end
 end
 
-
+def 
 
 read_to_array('test_data_sample.txt')
 puts @calorie_totals.max

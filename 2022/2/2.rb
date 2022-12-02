@@ -9,9 +9,7 @@ def read_to_array(file)
         score_shape
         score_outcome
         # puts @array.to_s
-        # puts @score
-        
-        
+        # puts @score 
     end
 end
 
@@ -27,22 +25,24 @@ def score_shape
         @score += 3
     end
 
-
 end
 
 def score_outcome
     play = @array[0].sum("").to_s 
     # puts "play value is: "+play.to_s
 
-    if play.include?("AY") or play.include?("BZ") or play.include?("CA")  == true
+    if play.include?("CX") or play.include?("BZ") or play.include?("AY")  == true
+        # puts "win"
         @score += 6
     elsif 
         play.include?("AX") or play.include?("BY") or play.include?("CZ") == true
+        # puts "tie"
         @score += 3
     else
+        # puts "loss"
         @score += 0
     end
 end
 
-read_to_array('test_data_sample.txt')
+read_to_array('test_data.txt')
 puts @score

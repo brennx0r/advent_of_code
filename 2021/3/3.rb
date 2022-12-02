@@ -1,6 +1,7 @@
 @row_count = 0
 @gamma = []
 @epsilon = []
+
 class Binary
     def self.to_decimal(binary)
         raise ArgumentError if binary.match?(/[^01]/)
@@ -10,9 +11,7 @@ class Binary
         end.sum
     end
 end
-  
-
-  
+   
 def read_to_array(file)
     read_lines = File.readlines(file)
     @array = []
@@ -24,7 +23,46 @@ def read_to_array(file)
 
     end
 
-    evaluate_gamma
+    evaluate_oxygen_generator_rating
+
+end
+
+def evaluate_oxygen_generator_rating
+    length = @array[0].count
+    dupe_array = @array
+    
+    length.times do
+    
+        tmp_array = []
+        n = 0
+        ones = 0
+        zeroes = 0
+        @row_count.times do
+
+            if @array[n][0] == "1"
+                ones += 1
+                @array[n].shift()
+            elsif
+                @array[n][0] == "0"
+                zeroes += 1
+                @array[n].shift()
+            else
+            end
+
+            puts ones
+            puts zeroes
+            n+= 1
+        end
+
+        if ones > zeroes 
+
+        
+
+        else
+
+
+        end
+    end
 end
 
 def evaluate_gamma
@@ -38,6 +76,7 @@ def evaluate_gamma
         zeroes = 0
         @row_count.times do
 
+            
             if @array[n][0] == "1"
                 ones += 1
                 @array[n].shift()

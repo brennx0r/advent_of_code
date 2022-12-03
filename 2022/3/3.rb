@@ -42,6 +42,6 @@ def evaluate_trio
 end
 
 make_alphabet_array
-read_to_array('test_data_sample.txt')
+read_to_array('test_data.txt')
 evaluate_trio
 puts @value

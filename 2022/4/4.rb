@@ -9,14 +9,16 @@ def read_to_array(file)
         split_line = line.chomp.split(",")
         section1 = split_line[0].to_s.split('-')
         section2 = split_line[1].to_s.split('-')
+        r1_first = section1[0].to_i
+        r1_last = section1[1].to_i
+        r2_first = section2[0].to_i
+        r2_last = section2[1].to_i
 
-        if (section1[0].to_i..section1[1].to_i).cover?(section2[0].to_i..section2[1].to_i) == true
+
+        if !(r1_first > r2_last || r1_last < r2_first) 
             puts "hooray"
             @count += 1
-        elsif 
-            (section2[0].to_i..section2[1].to_i).cover?(section1[0].to_i..section1[1].to_i) == true
-            puts "hooray"
-           @count += 1
+    
         else
             puts "no match"
         end

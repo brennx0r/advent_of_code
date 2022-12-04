@@ -17,9 +17,7 @@ def read_to_array(file)
 
         if !(r1_first > r2_last || r1_last < r2_first) 
             @count += 1
-        else
         end
-
     end
 end
 

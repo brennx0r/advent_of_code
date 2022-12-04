@@ -16,15 +16,12 @@ def read_to_array(file)
 
 
         if !(r1_first > r2_last || r1_last < r2_first) 
-            puts "hooray"
             @count += 1
-    
         else
-            puts "no match"
         end
 
     end
 end
 
-read_to_array('test_data_sample.txt')
+read_to_array('test_data.txt')
 puts @count.to_s

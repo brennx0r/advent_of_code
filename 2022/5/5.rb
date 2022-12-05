@@ -1,4 +1,4 @@
-@stacks = [["Z", "N"],["M", "C", "D"],["P"]]
+@stacks = [["F","T","C","L", "R", "P", "G", "Q"],["N", "Q", "H", "W", "R", "F", "S", "J"],["F", "B", "H", "W", "P", "M", "Q"],["V", "S", "T", "D", "F"],["Q", "L", "D", "W", "V", "F", "Z"],["Z", "C", "L", "S"],["Z", "B", "M", "V", "D", "F"],["T", "J", "B"],["Q", "N", "B", "G", "L", "S", "P", "H"]]
 
 
 @array = []
@@ -33,8 +33,8 @@ def make_move
     }
 end
 
-read_to_array('test_data_sample.txt')
+read_to_array('test_data.txt')
 
-puts "1: " + @stacks[0].to_s
-puts "2: " + @stacks[1].to_s
-puts "3: " + @stacks[2].to_s
+puts @stacks[0].last.to_s + @stacks[1].last.to_s+ @stacks[2].last.to_s + @stacks[3].last.to_s + @stacks[4].last.to_s + @stacks[5].last.to_s + @stacks[6].last.to_s + @stacks[7].last.to_s + @stacks[8].last.to_s
+ 
+

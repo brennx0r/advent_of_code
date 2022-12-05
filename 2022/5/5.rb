@@ -39,8 +39,8 @@ def make_packages_move
     move = @array[0]
     # puts move.to_s
 
-    from = @test_stacks[move[1].to_i-1]
-    to = @test_stacks[move[2].to_i-1]
+    from = @stacks[move[1].to_i-1]
+    to = @stacks[move[2].to_i-1]
     ## Packages
     package_top = from.length-1
     puts package_top
@@ -56,8 +56,8 @@ def make_packages_move
     }
 end
 
-read_to_array('test_data_sample.txt')
-# puts @stacks[0].last.to_s + @stacks[1].last.to_s+ @stacks[2].last.to_s + @stacks[3].last.to_s + @stacks[4].last.to_s + @stacks[5].last.to_s + @stacks[6].last.to_s + @stacks[7].last.to_s + @stacks[8].last.to_s
-puts @test_stacks.to_s
-puts @test_stacks[0].last.to_s + @test_stacks[1].last.to_s+ @test_stacks[2].last.to_s
+read_to_array('test_data.txt')
+puts @stacks[0].last.to_s + @stacks[1].last.to_s+ @stacks[2].last.to_s + @stacks[3].last.to_s + @stacks[4].last.to_s + @stacks[5].last.to_s + @stacks[6].last.to_s + @stacks[7].last.to_s + @stacks[8].last.to_s
+# puts @test_stacks.to_s
+# puts @test_stacks[0].last.to_s + @test_stacks[1].last.to_s+ @test_stacks[2].last.to_s
 

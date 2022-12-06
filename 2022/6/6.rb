@@ -20,17 +20,18 @@ def process_stream
         @count += 1
     }
     
-    
-
     length.times {
         unique_arr =[]
         @saved_stream << @array[0]
         unique_arr = @saved_stream.uniq
         puts @saved_stream.to_s
         puts unique_arr.to_s
-        if unique_arr.length == 5
+        if unique_arr.length == 14
             puts "FOUND IT: "+@count.to_s
             break
+        elsif @saved_stream.length < 14
+            @count += 1
+            @array.shift
         else
             @count += 1
             @array.shift

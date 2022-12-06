@@ -11,6 +11,7 @@ end
 
 def process_stream
     length = @array.length.to_i
+
         puts @array[0].to_s
         
     4.times {
@@ -21,7 +22,7 @@ def process_stream
     
     
 
-    10.times {
+    length.times {
         unique_arr =[]
         @saved_stream << @array[0]
         unique_arr = @saved_stream.uniq
@@ -29,6 +30,7 @@ def process_stream
         puts unique_arr.to_s
         if unique_arr.length == 5
             puts "FOUND IT: "+@count.to_s
+            break
         else
             @count += 1
             @array.shift
@@ -39,5 +41,5 @@ def process_stream
     
 end
 
-read_to_array('test_data_sample.txt')
+read_to_array('test_data.txt')
 process_stream
